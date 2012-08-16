@@ -1,0 +1,10 @@
+#<<---->> cStaff 1.1 <<---->>
+
+Finally, all those confused players know who to ask for help!  Simply type /staff to see:
+  - Names of online staff members (players with the 'cstaff.staff' permission node will show up in this list)
+  - Names of online donors (players with the 'cstaff.donor' permission node will show up in this list
+  - Online player count
+
+Now with built-in color schemes to choose from! Check out the ColorScheme section in the config!
+
+Authors: Developher and LinearLogic
