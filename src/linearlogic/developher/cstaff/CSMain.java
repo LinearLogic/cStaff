@@ -5,10 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Logger;
-
-import linearlogic.developher.handlers.CSCommands;
-import linearlogic.developher.handlers.CSPermissions;
+import linearlogic.developher.util.CSCommandHandler;
+import linearlogic.developher.util.CSLogger;
+import linearlogic.developher.util.CSPermissionsHandler;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -19,28 +18,35 @@ public class CSMain extends JavaPlugin
 	File configFile;
 	public static FileConfiguration config;
 	public static CSMain instance = null;
-	public static Logger log = Logger.getLogger("Minecraft");
+	public static String version;
 
 	public void onEnable()
 	{
-		configFile = new File(getDataFolder(), "config.yml");
+		version = getDescription().getVersion();
+		CSLogger.logInfo("Initializing cStaff version " + version);
 		
+		CSLogger.logInfo("Loading config.yml...");
+		configFile = new File(getDataFolder(), "config.yml");
 		try {
             firstRunConfiguration();
         } catch (Exception e) {
             e.printStackTrace();
         }
-		
 		config = new YamlConfiguration();
 		loadConfig();
+		
+		CSLogger.logInfo("Activating command handler...");
 		instance = this;
-		CSPermissions.setup();
-		getCommand("cstaff").setExecutor(new CSCommands());
+		CSPermissionsHandler.setup();
+		getCommand("cstaff").setExecutor(new CSCommandHandler());
+		
+		CSLogger.logInfo("Plugin successfully enabled!");
 	}
 
 	public void onDisable()
 	{
 		saveConfig();
+		CSLogger.logInfo("Plugin successfully disabled!");
 	}
 
 	public static CSMain getInstance() {

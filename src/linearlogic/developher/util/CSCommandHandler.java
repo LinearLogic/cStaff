@@ -1,7 +1,6 @@
-package linearlogic.developher.handlers;
+package linearlogic.developher.util;
 
 import linearlogic.developher.cstaff.CSMain;
-
 import java.util.ArrayList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,7 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CSCommands
+public class CSCommandHandler
   implements CommandExecutor
 {
 	ArrayList<Player> staff = new ArrayList<Player>();
@@ -22,7 +21,7 @@ public class CSCommands
 	{
 		
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
-			if (((!CSPermissions.permission.has(plr, "cstaff.staff")) && (!plr.isOp())) || (this.staff.contains(plr))) {
+			if (((!CSPermissionsHandler.permission.has(plr, "cstaff.staff")) && (!plr.isOp())) || (this.staff.contains(plr))) {
 				continue;
 			}
 			this.staff.add(plr);
@@ -35,7 +34,7 @@ public class CSCommands
 		}
 
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
-			if (((!CSPermissions.permission.has(plr, "cstaff.donor")) && (!plr.isOp())) || (this.donor.contains(plr))) {
+			if (((!CSPermissionsHandler.permission.has(plr, "cstaff.donor")) && (!plr.isOp())) || (this.donor.contains(plr))) {
 				continue;
 			}
 			this.donor.add(plr);
@@ -117,7 +116,7 @@ public class CSCommands
 				sender.sendMessage(ChatColor.BLACK + playerCount3);
 				sender.sendMessage("");
 				if (this.staff.size() == 0) {
-					sender.sendMessage(ChatColor.BLACK + "There are currently no staff members online!");
+					sender.sendMessage(ChatColor.DARK_GRAY + "There are currently no staff members online!");
 				}
 				else if (!(this.staff.size() == 0)) {
 					sender.sendMessage(ChatColor.DARK_GRAY + "Staff Online" + ChatColor.BLACK + " (" + ChatColor.DARK_GRAY + String.valueOf(this.staff.size()) + ChatColor.BLACK + ")" + ChatColor.BLACK + ChatColor.BLACK + ": " + ChatColor.GRAY + this.staff2.toString());
@@ -126,7 +125,7 @@ public class CSCommands
 				}
 				sender.sendMessage("");
 				if (this.donor.size() == 0) {
-					sender.sendMessage(ChatColor.BLACK + "There are currently no donors online!");
+					sender.sendMessage(ChatColor.DARK_GRAY + "There are currently no donors online!");
 				}
 				else if (!(this.donor.size() == 0)) {
 					sender.sendMessage(ChatColor.DARK_GRAY + "Donors Online" + ChatColor.BLACK + " (" + ChatColor.DARK_GRAY + String.valueOf(this.donor.size()) + ChatColor.BLACK + ")" + ChatColor.BLACK + ": " + ChatColor.GRAY + this.donor2.toString());
