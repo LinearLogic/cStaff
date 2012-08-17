@@ -1,4 +1,4 @@
-package me.developher.cstaff;
+package linearlogic.developher.cstaff;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -7,8 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Logger;
 
-import me.developher.handlers.CSCommands;
-import me.developher.handlers.CSPermissions;
+import linearlogic.developher.handlers.CSCommands;
+import linearlogic.developher.handlers.CSPermissions;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

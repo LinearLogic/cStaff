@@ -1,4 +1,4 @@
-package me.developher.handlers;
+package linearlogic.developher.handlers;
 
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;

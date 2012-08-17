@@ -1,6 +1,7 @@
-package me.developher.handlers;
+package linearlogic.developher.handlers;
 
-import me.developher.cstaff.CSMain;
+import linearlogic.developher.cstaff.CSMain;
+
 import java.util.ArrayList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
