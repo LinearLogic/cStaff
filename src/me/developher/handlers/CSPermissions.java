@@ -1,11 +1,9 @@
-package me.developher.cstaff;
+package me.developher.handlers;
 
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.RegisteredServiceProvider;
-import org.bukkit.plugin.ServicesManager;
 
 public class CSPermissions
 {
@@ -16,7 +14,7 @@ public class CSPermissions
 		try
 			{
 				Class.forName("net.milkbowl.vault.permission.Permission");
-				RegisteredServiceProvider permissionProvider = Bukkit.getServer().getServicesManager().getRegistration(Permission.class);
+				RegisteredServiceProvider<Permission> permissionProvider = Bukkit.getServer().getServicesManager().getRegistration(Permission.class);
 				permission = (Permission)permissionProvider.getProvider();
 			} catch (ClassNotFoundException localClassNotFoundException) {
 				localClassNotFoundException.printStackTrace();
