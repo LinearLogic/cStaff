@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import linearlogic.developher.util.CSCommandHandler;
 import linearlogic.developher.util.CSLogger;
-import linearlogic.developher.util.CSPermissionsHandler;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -15,15 +14,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CSMain extends JavaPlugin
 {
+	public CSCommandHandler csch = new CSCommandHandler(this);
 	File configFile;
 	public static FileConfiguration config;
 	public static CSMain instance = null;
-	public static String version;
 
 	public void onEnable()
 	{
-		version = getDescription().getVersion();
-		CSLogger.logInfo("Initializing cStaff version " + version);
 		
 		CSLogger.logInfo("Loading config.yml...");
 		configFile = new File(getDataFolder(), "config.yml");
@@ -37,14 +34,14 @@ public class CSMain extends JavaPlugin
 		
 		CSLogger.logInfo("Activating command handler...");
 		instance = this;
-		CSPermissionsHandler.setup();
-		getCommand("cstaff").setExecutor(new CSCommandHandler());
+		getCommand("cstaff").setExecutor(new CSCommandHandler(this));
 		
 		CSLogger.logInfo("Plugin successfully enabled!");
 	}
 
 	public void onDisable()
 	{
+		loadConfig();
 		saveConfig();
 		CSLogger.logInfo("Plugin successfully disabled!");
 	}

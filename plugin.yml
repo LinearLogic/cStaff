@@ -1,7 +1,27 @@
 name: cStaff
 main: linearlogic.developher.cstaff.CSMain
-author: [Developher, LinearLogic]
-version: 1.3.0
+author: [LinearLogic, Developher]
+version: 1.5.0
+permissions:
+    cstaff.*:
+        description: Gives access to all cstaff commands and groups
+        children:
+            cstaff.staff: true
+            cstaff.donor: true
+            cstaff.version: true
+            cstaff.reload: true
+    cstaff.staff:
+        description: Players with this node show up as staff in the cStaff playerlist
+        default: op
+    cstaff.donor:
+        description: Players with this node show up as donors in the cStaff playerlist
+        default: false
+    cstaff.version:
+        description: Allows player to view the version of cStaff that the server is running
+        default: true
+    cstaff.reload:
+        description: Allows player to reload the cStaff config
+        default: op
 commands:
-  cstaff:
-    aliases: [staff]
+    cstaff:
+        aliases: [staff]
