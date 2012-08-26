@@ -17,7 +17,7 @@ public class CSMain extends JavaPlugin
 	public CSCommandHandler csch = new CSCommandHandler(this);
 	File configFile;
 	public static FileConfiguration config;
-	public static CSMain instance = null;
+	public static CSMain plugin = null;
 
 	public void onEnable()
 	{
@@ -33,7 +33,7 @@ public class CSMain extends JavaPlugin
 		loadConfig();
 		
 		CSLogger.logInfo("Activating command handler...");
-		instance = this;
+		plugin = this;
 		getCommand("cstaff").setExecutor(new CSCommandHandler(this));
 		
 		CSLogger.logInfo("Plugin successfully enabled!");
@@ -47,7 +47,7 @@ public class CSMain extends JavaPlugin
 	}
 
 	public static CSMain getInstance() {
-		return instance;
+		return plugin;
     }
 	
 //===========================Config file handling===========================//
