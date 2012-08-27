@@ -1,9 +1,10 @@
 name: cStaff
 main: linearlogic.developher.cstaff.CSMain
 author: [LinearLogic, Developher]
-version: 1.5.1
+version: 1.6.1
 permissions:
     cstaff.*:
+        default: false
         description: Gives access to all cstaff commands and groups
         children:
             cstaff.staff: true
@@ -12,7 +13,7 @@ permissions:
             cstaff.reload: true
     cstaff.staff:
         description: Players with this node show up as staff in the cStaff playerlist
-        default: op
+        default: false
     cstaff.donor:
         description: Players with this node show up as donors in the cStaff playerlist
         default: false

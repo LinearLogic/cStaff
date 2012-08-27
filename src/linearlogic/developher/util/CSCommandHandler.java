@@ -71,7 +71,17 @@ public class CSCommandHandler
 	public void sendOnlineInfo(CommandSender sender)
 	{
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
-			if (((!plr.hasPermission("cstaff.staff")) && (!plr.isOp())) || (this.staff.contains(plr))) {
+			if (this.staff.contains(plr)) {
+				continue;
+			}
+			if (!CSMain.config.getBoolean("ops.show-as-staff")) {
+				if (!plr.hasPermission("cstaff.staff")) {
+					continue;
+				}
+				this.staff.add(plr);
+				continue;
+			}
+			if ((!plr.hasPermission("cstaff.staff")) && (!plr.isOp())) {
 				continue;
 			}
 			this.staff.add(plr);
@@ -84,7 +94,17 @@ public class CSCommandHandler
 		}
 
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
-			if (((!plr.hasPermission("cstaff.donor")) && (!plr.isOp())) || (this.donor.contains(plr))) {
+			if (this.donor.contains(plr)) {
+				continue;
+			}
+			if (!CSMain.config.getBoolean("ops.show-as-donors")) {
+				if (!plr.hasPermission("cstaff.donor")) {
+					continue;
+				}
+				this.donor.add(plr);
+				continue;
+			}
+			if ((!plr.hasPermission("cstaff.donor")) && (!plr.isOp())) {
 				continue;
 			}
 			this.donor.add(plr);

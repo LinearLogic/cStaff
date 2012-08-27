@@ -1,4 +1,4 @@
-#<<---->> cStaff 1.5 <<---->>
+#<<---->> cStaff 1.6 <<---->>
 
 Finally, all those confused players know who to ask for help!  Simply type /staff to see:
   - Names of online staff members (players with the 'cstaff.staff' permission node will show up in this list)
@@ -11,9 +11,13 @@ Compiled with CB 1.3.1 R2.0
 
 Authors: LinearLogic and Developher
 
-###Changelog (1.5.0 --> 1.5.1)
+###Changelog (1.5.2 --> 1.6.1)
+- Added Op handling to config.yml (by default, Ops show up as staff, but not donors)
+- Added checker methods to /staff output generator, so that Ops only show up as staff/donors if they are configged to do so (in the config.yml)
+
+###Changelog (1.5.1 --> 1.5.2)
 - Compiled cStaff against CraftBukkit 1.3.1 R2.0
-###Changelog (1.4 --> 1.5.0)
+###Changelog (1.4.1 --> 1.5.1)
 
 - Added 'version' command extension (pretty self-explanatory)
 - Added 'reload' command extension - reloads the config so you don't need to restart the server in order to apply color scheme changes
@@ -21,8 +25,3 @@ Authors: LinearLogic and Developher
 - Added error handling for cStaff commands - an unrecognized command will return the '/cstaff help' output
 - Added permissions nodes for '/cstaff version' and '/cstaff reload'
 - Added permissions branch to plugin.yml
-
-###Changelog (1.3 --> 1.4)
-
-- Removed dependency on Vault for permissions handling
-- Reworked CSCommandHandler class in preparation for the addition of 'version' and 'reload' command extensions
