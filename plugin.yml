@@ -1,7 +1,7 @@
 name: cStaff
 main: linearlogic.developher.cstaff.CSMain
 author: [LinearLogic, Developher]
-version: 1.5.0
+version: 1.5.1
 permissions:
     cstaff.*:
         description: Gives access to all cstaff commands and groups
