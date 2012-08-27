@@ -7,11 +7,13 @@ Finally, all those confused players know who to ask for help!  Simply type /staf
 
 Now with 6 different built-in color schemes to choose from! Check out the ColorScheme section in the config!
 
-Compiled with CB 1.3.1 R1.0
+Compiled with CB 1.3.1 R2.0
 
 Authors: LinearLogic and Developher
 
-###Changelog (1.4 --> 1.5)
+###Changelog (1.5.0 --> 1.5.1)
+- Compiled cStaff against CraftBukkit 1.3.1 R2.0
+###Changelog (1.4 --> 1.5.0)
 
 - Added 'version' command extension (pretty self-explanatory)
 - Added 'reload' command extension - reloads the config so you don't need to restart the server in order to apply color scheme changes
