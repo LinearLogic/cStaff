@@ -41,7 +41,7 @@ public class CSCommandHandler
 					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.WHITE + " This server is running version " + version);
 					return true;
 				}
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Uh oh. No permissions!");
+				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.DARK_RED + " Uh oh. No permissions!");
 				return true;
 				
 			}
@@ -50,19 +50,19 @@ public class CSCommandHandler
 				if (sender.hasPermission("cstaff.reload"))
 				{
 					this.plugin.loadConfig();
-					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.GREEN + " Reload complete!");
+					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.DARK_RED + " Reload complete!");
 					return true;
 				}
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Uh oh. No permissions!");
+				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.DARK_RED + " Uh oh. No permissions!");
 				return true;
 			}
 			if (args[0].equalsIgnoreCase("help"))
 			{
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Command usage:");
+				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.DARK_RED + " Command usage:");
 				sender.sendMessage(ChatColor.WHITE + "/staff " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Lists staff members and donors online\n" + ChatColor.WHITE + "/staff version " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Returns the version of cStaff this server is running\n" + ChatColor.WHITE + "/staff reload " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Reloads the config, applying color changes");
 				return true;
 			}
-			sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Not sure what you're trying to do. Here's some help:");
+			sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.DARK_RED + " Not sure what you're trying to do. Here's some help:");
 			sender.sendMessage(ChatColor.WHITE + "/staff " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Lists staff members and donors online\n" + ChatColor.WHITE + "/staff version " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Returns the version of cStaff this server is running\n" + ChatColor.WHITE + "/staff reload " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Reloads the config, applying color changes");
 			return true;
 		}
@@ -147,9 +147,9 @@ public class CSCommandHandler
 				sender.sendMessage(ChatColor.BLUE + "---------------------------------------------------");
 				break;
 			case 2:
-				String playerCount2 = ChatColor.DARK_GREEN + "      --=" + ChatColor.GREEN + " There are " + ChatColor.DARK_GREEN + "(" + ChatColor.GREEN + Bukkit.getOnlinePlayers().length + ChatColor.DARK_GREEN + "/" + ChatColor.GREEN + Bukkit.getMaxPlayers() + ChatColor.DARK_GREEN + ") " + ChatColor.GREEN + "users currently online." + ChatColor.DARK_GREEN + " =--";
+				String playerCount2 = ChatColor.DARK_GREEN + "      --=" + ChatColor.DARK_RED + " There are " + ChatColor.DARK_GREEN + "(" + ChatColor.DARK_RED + Bukkit.getOnlinePlayers().length + ChatColor.DARK_GREEN + "/" + ChatColor.DARK_RED + Bukkit.getMaxPlayers() + ChatColor.DARK_GREEN + ") " + ChatColor.DARK_RED + "users currently online." + ChatColor.DARK_GREEN + " =--";
 				
-				sender.sendMessage(ChatColor.DARK_GREEN + "----------------------[" + ChatColor.GREEN + "cStaff" + ChatColor.DARK_GREEN + "]----------------------");
+				sender.sendMessage(ChatColor.DARK_GREEN + "----------------------[" + ChatColor.DARK_RED + "cStaff" + ChatColor.DARK_GREEN + "]----------------------");
 				sender.sendMessage("");
 				sender.sendMessage(ChatColor.DARK_GREEN + playerCount2);
 				sender.sendMessage("");
@@ -157,7 +157,7 @@ public class CSCommandHandler
 					sender.sendMessage(ChatColor.DARK_GREEN + "There are currently no staff members online!");
 				}
 				else if (!(this.staff.size() == 0)) {
-					sender.sendMessage(ChatColor.GREEN + "Staff Online" + ChatColor.DARK_GREEN + " (" + ChatColor.GREEN + String.valueOf(this.staff.size()) + ChatColor.DARK_GREEN + ")" + ChatColor.DARK_GREEN + ChatColor.DARK_GREEN + ": " + ChatColor.GRAY + this.staff2.toString());
+					sender.sendMessage(ChatColor.DARK_RED + "Staff Online" + ChatColor.DARK_GREEN + " (" + ChatColor.DARK_RED + String.valueOf(this.staff.size()) + ChatColor.DARK_GREEN + ")" + ChatColor.DARK_GREEN + ChatColor.DARK_GREEN + ": " + ChatColor.GRAY + this.staff2.toString());
 					this.staff.clear();
 					this.staff2.clear();
 				}
@@ -166,7 +166,7 @@ public class CSCommandHandler
 					sender.sendMessage(ChatColor.DARK_GREEN + "There are currently no donors online!");
 				}
 				else if (!(this.donor.size() == 0)) {
-					sender.sendMessage(ChatColor.GREEN + "Donors Online" + ChatColor.DARK_GREEN + " (" + ChatColor.GREEN + String.valueOf(this.donor.size()) + ChatColor.DARK_GREEN + ")" + ChatColor.DARK_GREEN + ": " + ChatColor.GRAY + this.donor2.toString());
+					sender.sendMessage(ChatColor.DARK_RED + "Donors Online" + ChatColor.DARK_GREEN + " (" + ChatColor.DARK_RED + String.valueOf(this.donor.size()) + ChatColor.DARK_GREEN + ")" + ChatColor.DARK_GREEN + ": " + ChatColor.GRAY + this.donor2.toString());
 					this.donor2.clear();
 					this.donor.clear();
 				}
@@ -201,9 +201,9 @@ public class CSCommandHandler
 				sender.sendMessage(ChatColor.BLACK + "---------------------------------------------------");
 				break;
 			case 4:
-				String playerCount4 = ChatColor.DARK_RED + "      --=" + ChatColor.RED + " There are " + ChatColor.DARK_RED + "(" + ChatColor.RED + Bukkit.getOnlinePlayers().length + ChatColor.DARK_RED + "/" + ChatColor.RED + Bukkit.getMaxPlayers() + ChatColor.DARK_RED + ") " + ChatColor.RED + "users currently online." + ChatColor.DARK_RED + " =--";
+				String playerCount4 = ChatColor.DARK_RED + "      --=" + ChatColor.DARK_RED + " There are " + ChatColor.DARK_RED + "(" + ChatColor.DARK_RED + Bukkit.getOnlinePlayers().length + ChatColor.DARK_RED + "/" + ChatColor.DARK_RED + Bukkit.getMaxPlayers() + ChatColor.DARK_RED + ") " + ChatColor.DARK_RED + "users currently online." + ChatColor.DARK_RED + " =--";
 				
-				sender.sendMessage(ChatColor.DARK_RED + "----------------------[" + ChatColor.RED + "cStaff" + ChatColor.DARK_RED + "]----------------------");
+				sender.sendMessage(ChatColor.DARK_RED + "----------------------[" + ChatColor.DARK_RED + "cStaff" + ChatColor.DARK_RED + "]----------------------");
 				sender.sendMessage("");
 				sender.sendMessage(ChatColor.DARK_RED + playerCount4);
 				sender.sendMessage("");
@@ -211,7 +211,7 @@ public class CSCommandHandler
 					sender.sendMessage(ChatColor.DARK_RED + "There are currently no staff members online!");
 				}
 				else if (!(this.staff.size() == 0)) {
-					sender.sendMessage(ChatColor.RED + "Staff Online" + ChatColor.DARK_RED + " (" + ChatColor.RED + String.valueOf(this.staff.size()) + ChatColor.DARK_RED + ")" + ChatColor.DARK_RED + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.staff2.toString());
+					sender.sendMessage(ChatColor.DARK_RED + "Staff Online" + ChatColor.DARK_RED + " (" + ChatColor.DARK_RED + String.valueOf(this.staff.size()) + ChatColor.DARK_RED + ")" + ChatColor.DARK_RED + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.staff2.toString());
 					this.staff.clear();
 					this.staff2.clear();
 				}
@@ -220,7 +220,7 @@ public class CSCommandHandler
 					sender.sendMessage(ChatColor.DARK_RED + "There are currently no donors online!");
 				}
 				else if (!(this.donor.size() == 0)) {
-					sender.sendMessage(ChatColor.RED + "Donors Online" + ChatColor.DARK_RED + " (" + ChatColor.RED + String.valueOf(this.donor.size()) + ChatColor.DARK_RED + ")" + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.donor2.toString());
+					sender.sendMessage(ChatColor.DARK_RED + "Donors Online" + ChatColor.DARK_RED + " (" + ChatColor.DARK_RED + String.valueOf(this.donor.size()) + ChatColor.DARK_RED + ")" + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.donor2.toString());
 					this.donor2.clear();
 					this.donor.clear();
 				}
@@ -281,6 +281,35 @@ public class CSCommandHandler
 				sender.sendMessage("");
 				sender.sendMessage(ChatColor.GOLD + "---------------------------------------------------");
 				break;
+			case 7:
+				String playerCount7 = ChatColor.DARK_RED + "      --=" + ChatColor.DARK_RED + " There are " + ChatColor.DARK_RED + "(" + ChatColor.DARK_RED + Bukkit.getOnlinePlayers().length + ChatColor.DARK_GREEN + "/" + ChatColor.DARK_RED + Bukkit.getMaxPlayers() + ChatColor.DARK_GREEN + ") " + ChatColor.DARK_RED + "users currently online." + ChatColor.DARK_GREEN + " =--";
+				
+				sender.sendMessage(ChatColor.BLACK + "-" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--[" + ChatColor.DARK_RED + "cStaff" + ChatColor.BLACK + "]--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
+				sender.sendMessage("");
+				sender.sendMessage(ChatColor.DARK_RED + playerCount7);
+				sender.sendMessage("");
+				if (this.staff.size() == 0) {
+					sender.sendMessage(ChatColor.DARK_RED + "There are currently no staff members online!");
+				}
+				else if (!(this.staff.size() == 0)) {
+					sender.sendMessage(ChatColor.DARK_RED + "Staff Online" + ChatColor.BLACK + " (" + ChatColor.DARK_RED + String.valueOf(this.staff.size()) + ChatColor.BLACK + ")" + ChatColor.DARK_RED + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.staff2.toString());
+					this.staff.clear();
+					this.staff2.clear();
+				}
+				sender.sendMessage("");
+				if (this.donor.size() == 0) {
+					sender.sendMessage(ChatColor.RED + "There are currently no donors online!");
+				}
+				else if (!(this.donor.size() == 0)) {
+					sender.sendMessage(ChatColor.DARK_RED + "Donors Online" + ChatColor.DARK_RED + " (" + ChatColor.DARK_RED + String.valueOf(this.donor.size()) + ChatColor.DARK_GREEN + ")" + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.donor2.toString());
+					this.donor2.clear();
+					this.donor.clear();
+				}
+				sender.sendMessage("");
+				sender.sendMessage(ChatColor.BLACK + "-" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
+				break;
 		}
+		
+		
 	}
 }
