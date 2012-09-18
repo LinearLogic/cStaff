@@ -1,6 +1,5 @@
-package linearlogic.developher.util;
+package linearlogic.developher.cstaff;
 
-import linearlogic.developher.cstaff.CSMain;
 import java.util.ArrayList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -267,7 +266,7 @@ public class CSCommandHandler
 				else if (!(this.staff.size() == 0)) {
 					sender.sendMessage(ChatColor.YELLOW + "Staff Online" + ChatColor.GOLD + " (" + ChatColor.YELLOW + String.valueOf(this.staff.size()) + ChatColor.GOLD + ")" + ChatColor.GOLD + ChatColor.GOLD + ": " + ChatColor.GRAY + this.staff2.toString());
 					this.staff.clear();
-					this.staff2.clear();
+					this.staff2.clear();	
 				}
 				sender.sendMessage("");
 				if (this.donor.size() == 0) {

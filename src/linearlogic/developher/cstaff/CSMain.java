@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import linearlogic.developher.util.CSCommandHandler;
 import linearlogic.developher.util.CSLogger;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,7 +20,6 @@ public class CSMain extends JavaPlugin
 
 	public void onEnable()
 	{
-		
 		CSLogger.logInfo("Loading config.yml...");
 		configFile = new File(getDataFolder(), "config.yml");
 		try {
