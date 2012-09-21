@@ -281,14 +281,14 @@ public class CSCommandHandler
 				sender.sendMessage(ChatColor.GOLD + "---------------------------------------------------");
 				break;
 			case 7:
-				String playerCount7 = ChatColor.DARK_RED + "      --=" + ChatColor.DARK_RED + " There are " + ChatColor.DARK_RED + "(" + ChatColor.DARK_RED + Bukkit.getOnlinePlayers().length + ChatColor.DARK_GREEN + "/" + ChatColor.DARK_RED + Bukkit.getMaxPlayers() + ChatColor.DARK_GREEN + ") " + ChatColor.DARK_RED + "users currently online." + ChatColor.DARK_GREEN + " =--";
+				String playerCount7 = ChatColor.DARK_RED + "      --=" + ChatColor.DARK_RED + " There are " + ChatColor.RED + "(" + ChatColor.DARK_RED + Bukkit.getOnlinePlayers().length + ChatColor.RED + "/" + ChatColor.DARK_RED + Bukkit.getMaxPlayers() + ChatColor.RED + ") " + ChatColor.DARK_RED + "users currently online." + ChatColor.DARK_RED + " =--";
 				
-				sender.sendMessage(ChatColor.BLACK + "-" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--[" + ChatColor.DARK_RED + "cStaff" + ChatColor.BLACK + "]--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
+				sender.sendMessage(ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "[" + ChatColor.RED + "cStaff" + ChatColor.DARK_RED + "]" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
 				sender.sendMessage("");
 				sender.sendMessage(ChatColor.DARK_RED + playerCount7);
 				sender.sendMessage("");
 				if (this.staff.size() == 0) {
-					sender.sendMessage(ChatColor.DARK_RED + "There are currently no staff members online!");
+					sender.sendMessage(ChatColor.RED + "There are currently no staff members online!");
 				}
 				else if (!(this.staff.size() == 0)) {
 					sender.sendMessage(ChatColor.DARK_RED + "Staff Online" + ChatColor.BLACK + " (" + ChatColor.DARK_RED + String.valueOf(this.staff.size()) + ChatColor.BLACK + ")" + ChatColor.DARK_RED + ChatColor.DARK_RED + ": " + ChatColor.GRAY + this.staff2.toString());
@@ -305,7 +305,7 @@ public class CSCommandHandler
 					this.donor.clear();
 				}
 				sender.sendMessage("");
-				sender.sendMessage(ChatColor.BLACK + "-" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
+				sender.sendMessage(ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
 				break;
 		}
 		
