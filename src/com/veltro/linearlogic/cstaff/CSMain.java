@@ -19,7 +19,7 @@ public class CSMain extends JavaPlugin {
 	public static CSMain plugin = null;
 
 	public void onEnable() {
-		CSLogger.logInfo("Loading config.yml...");
+		getLogger().info("Loading config.yml...");
 		configFile = new File(getDataFolder(), "config.yml");
 		try {
             firstRunConfiguration();
@@ -29,17 +29,17 @@ public class CSMain extends JavaPlugin {
 		config = new YamlConfiguration();
 		loadConfig();
 		
-		CSLogger.logInfo("Activating command handler...");
+		getLogger().info("Activating command handler...");
 		plugin = this;
 		getCommand("cstaff").setExecutor(new CSCommandHandler(this));
 		
-		CSLogger.logInfo("Plugin successfully enabled!");
+		getLogger().info("Plugin successfully enabled!");
 	}
 
 	public void onDisable() {
 		loadConfig();
 		saveConfig();
-		CSLogger.logInfo("Plugin successfully disabled!");
+		getLogger().info("Plugin successfully disabled!");
 	}
 
 	public static CSMain getInstance() {
