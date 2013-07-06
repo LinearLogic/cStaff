@@ -8,16 +8,16 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CSCommandHandler implements CommandExecutor {
+public class CSCommand implements CommandExecutor {
 
 	public static String version;
-	private CSMain plugin;
+	private CStaff plugin;
 	private ArrayList<Player> staff = new ArrayList<Player>();
 	private ArrayList<String> staff2 = new ArrayList<String>();
 	private ArrayList<Player> donor = new ArrayList<Player>();
 	private ArrayList<String> donor2 = new ArrayList<String>();
 
-	public CSCommandHandler(CSMain instance) {
+	public CSCommand(CStaff instance) {
 		plugin = instance;
 	}
 
