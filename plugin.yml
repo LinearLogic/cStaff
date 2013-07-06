@@ -1,7 +1,7 @@
 name: cStaff
 main: linearlogic.developher.cstaff.CSMain
 author: [LinearLogic, Developher]
-version: 2.0.1
+version: 2.0.2
 permissions:
     cstaff.*:
         default: false

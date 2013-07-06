@@ -8,12 +8,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CSCommandHandler
-  implements CommandExecutor
-{
+public class CSCommandHandler implements CommandExecutor {
+
 	private CSMain plugin;
-	public CSCommandHandler(CSMain wr)
-	{
+	public CSCommandHandler(CSMain wr) {
 		this.plugin = wr;
 	}
 	
@@ -23,19 +21,13 @@ public class CSCommandHandler
 	ArrayList<Player> donor = new ArrayList<Player>();
 	ArrayList<String> donor2 = new ArrayList<String>();
 
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-	{
-		if (args.length == 0)
-		{
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (args.length == 0) {
 			sendOnlineInfo(sender);
 			return true;
-		}
-		else
-		{
-			if (args[0].equalsIgnoreCase("version"))
-			{
-				if (sender.hasPermission("cstaff.version"))
-				{
+		} else {
+			if (args[0].equalsIgnoreCase("version")) {
+				if (sender.hasPermission("cstaff.version")) {
 					version = this.plugin.getDescription().getVersion();
 					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.WHITE + " This server is running version " + version);
 					return true;
@@ -44,10 +36,8 @@ public class CSCommandHandler
 				return true;
 				
 			}
-			if (args[0].equalsIgnoreCase("reload"))
-			{
-				if (sender.hasPermission("cstaff.reload"))
-				{
+			if (args[0].equalsIgnoreCase("reload")) {
+				if (sender.hasPermission("cstaff.reload")) {
 					this.plugin.loadConfig();
 					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.GREEN + " Reload complete!");
 					return true;
@@ -55,8 +45,7 @@ public class CSCommandHandler
 				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Uh oh. No permissions!");
 				return true;
 			}
-			if (args[0].equalsIgnoreCase("help"))
-			{
+			if (args[0].equalsIgnoreCase("help")) {
 				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Command usage:");
 				sender.sendMessage(ChatColor.WHITE + "/staff " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Lists staff members and donors online\n" + ChatColor.WHITE + "/staff version " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Returns the version of cStaff this server is running\n" + ChatColor.WHITE + "/staff reload " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Reloads the config, applying color changes");
 				return true;
@@ -67,8 +56,7 @@ public class CSCommandHandler
 		}
 	}
 	
-	public void sendOnlineInfo(CommandSender sender)
-	{
+	public void sendOnlineInfo(CommandSender sender) {
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
 			if (this.staff.contains(plr)) {
 				continue;
@@ -115,8 +103,7 @@ public class CSCommandHandler
 			}
 		}
 		
-		switch (CSMain.config.getInt("ColorScheme"))
-		{
+		switch (CSMain.config.getInt("ColorScheme")) {
 			default:
 			case 1:
 				String playerCount1 = ChatColor.BLUE + "      --=" + ChatColor.DARK_AQUA + " There are " + ChatColor.BLUE + "(" + ChatColor.DARK_AQUA + Bukkit.getOnlinePlayers().length + ChatColor.BLUE + "/" + ChatColor.DARK_AQUA + Bukkit.getMaxPlayers() + ChatColor.BLUE + ") " + ChatColor.DARK_AQUA + "users currently online." + ChatColor.BLUE + " =--";
@@ -308,7 +295,5 @@ public class CSCommandHandler
 				sender.sendMessage(ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
 				break;
 		}
-		
-		
 	}
 }
