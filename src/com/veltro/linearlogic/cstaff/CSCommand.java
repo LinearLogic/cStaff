@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class CSCommand implements CommandExecutor {
 
-	public static String version;
+	private final String prefix = ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "] ";
 	private CStaff plugin;
 	private ArrayList<Player> staff = new ArrayList<Player>();
 	private ArrayList<String> staff2 = new ArrayList<String>();
@@ -27,35 +27,30 @@ public class CSCommand implements CommandExecutor {
 			return true;
 		} else {
 			if (args[0].equalsIgnoreCase("version")) {
-				if (sender.hasPermission("cstaff.version")) {
-					version = this.plugin.getDescription().getVersion();
-					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.WHITE + " This server is running version " + version);
-					return true;
-				}
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Uh oh. No permissions!");
+				sender.sendMessage(prefix + "Running " + ChatColor.DARK_AQUA + "v" +
+						plugin.getDescription().getVersion() + ChatColor.GRAY + " by LinearLogic and Developher.");
 				return true;
-				
 			}
 			if (args[0].equalsIgnoreCase("reload")) {
-				if (sender.hasPermission("cstaff.reload")) {
-					plugin.reloadConfig();
-					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.GREEN + " Reload complete!");
-					return true;
-				}
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Uh oh. No permissions!");
+				if (sender instanceof Player && !sender.hasPermission("cstaff.reload"))
+					return msgNoPerms(sender);
+				plugin.reloadConfig();
+				sender.sendMessage(prefix + ChatColor.GREEN + "Config reloaded!");
 				return true;
 			}
-			if (args[0].equalsIgnoreCase("help")) {
-				sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Command usage:");
-				sender.sendMessage(ChatColor.WHITE + "/staff " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Lists staff members and donors online\n" + ChatColor.WHITE + "/staff version " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Returns the version of cStaff this server is running\n" + ChatColor.WHITE + "/staff reload " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Reloads the config, applying color changes");
+			if (args[0].equalsIgnoreCase("help") || args[0].equals("?")) {
+				sender.sendMessage(prefix + ChatColor.DARK_AQUA + " Commands:\n" + ChatColor.AQUA + "/staff" +
+						ChatColor.GRAY + " - lists online staff members and donors\n" + ChatColor.AQUA + "/cstaff " +
+						"reload" + ChatColor.GRAY + " - reloads the config, applying color scheme changes\n" +
+						ChatColor.AQUA + "/cstaff version" + ChatColor.GRAY + " - displays version and authors");
 				return true;
 			}
-			sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.RED + " Not sure what you're trying to do. Here's some help:");
-			sender.sendMessage(ChatColor.WHITE + "/staff " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Lists staff members and donors online\n" + ChatColor.WHITE + "/staff version " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Returns the version of cStaff this server is running\n" + ChatColor.WHITE + "/staff reload " + ChatColor.DARK_AQUA + "-->" + ChatColor.GRAY + " Reloads the config, applying color changes");
+			sender.sendMessage(prefix + "Command not recognized. Type " + ChatColor.AQUA + "/cstaff help" +
+					ChatColor.GRAY + " for assistance.");
 			return true;
 		}
 	}
-	
+
 	public void sendOnlineInfo(CommandSender sender) {
 		for (Player plr : Bukkit.getServer().getOnlinePlayers()) {
 			if (this.staff.contains(plr)) {
@@ -295,5 +290,10 @@ public class CSCommand implements CommandExecutor {
 				sender.sendMessage(ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--" + ChatColor.BLACK + "--" + ChatColor.DARK_RED + "--");
 				break;
 		}
+	}
+
+	public boolean msgNoPerms(CommandSender sender) {
+		sender.sendMessage(prefix + ChatColor.RED + "Access denied!");
+		return true;
 	}
 }
