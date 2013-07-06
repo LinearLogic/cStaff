@@ -10,16 +10,16 @@ import org.bukkit.entity.Player;
 
 public class CSCommandHandler implements CommandExecutor {
 
-	private CSMain plugin;
-	public CSCommandHandler(CSMain wr) {
-		this.plugin = wr;
-	}
-	
 	public static String version;
-	ArrayList<Player> staff = new ArrayList<Player>();
-	ArrayList<String> staff2 = new ArrayList<String>();
-	ArrayList<Player> donor = new ArrayList<Player>();
-	ArrayList<String> donor2 = new ArrayList<String>();
+	private CSMain plugin;
+	private ArrayList<Player> staff = new ArrayList<Player>();
+	private ArrayList<String> staff2 = new ArrayList<String>();
+	private ArrayList<Player> donor = new ArrayList<Player>();
+	private ArrayList<String> donor2 = new ArrayList<String>();
+
+	public CSCommandHandler(CSMain instance) {
+		plugin = instance;
+	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (args.length == 0) {
@@ -38,7 +38,7 @@ public class CSCommandHandler implements CommandExecutor {
 			}
 			if (args[0].equalsIgnoreCase("reload")) {
 				if (sender.hasPermission("cstaff.reload")) {
-					this.plugin.loadConfig();
+					plugin.reloadConfig();
 					sender.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "cStaff" + ChatColor.GRAY + "]" + ChatColor.GREEN + " Reload complete!");
 					return true;
 				}
@@ -61,7 +61,7 @@ public class CSCommandHandler implements CommandExecutor {
 			if (this.staff.contains(plr)) {
 				continue;
 			}
-			if (!CSMain.config.getBoolean("ops.show-as-staff")) {
+			if (!plugin.getConfig().getBoolean("ops.show-as-staff")) {
 				if (!plr.hasPermission("cstaff.staff")) {
 					continue;
 				}
@@ -84,7 +84,7 @@ public class CSCommandHandler implements CommandExecutor {
 			if (this.donor.contains(plr)) {
 				continue;
 			}
-			if (!CSMain.config.getBoolean("ops.show-as-donors")) {
+			if (!plugin.getConfig().getBoolean("ops.show-as-donors")) {
 				if (!plr.hasPermission("cstaff.donor")) {
 					continue;
 				}
@@ -103,7 +103,7 @@ public class CSCommandHandler implements CommandExecutor {
 			}
 		}
 		
-		switch (CSMain.config.getInt("ColorScheme")) {
+		switch (plugin.getConfig().getInt("ColorScheme")) {
 			default:
 			case 1:
 				String playerCount1 = ChatColor.BLUE + "      --=" + ChatColor.DARK_AQUA + " There are " + ChatColor.BLUE + "(" + ChatColor.DARK_AQUA + Bukkit.getOnlinePlayers().length + ChatColor.BLUE + "/" + ChatColor.DARK_AQUA + Bukkit.getMaxPlayers() + ChatColor.BLUE + ") " + ChatColor.DARK_AQUA + "users currently online." + ChatColor.BLUE + " =--";
