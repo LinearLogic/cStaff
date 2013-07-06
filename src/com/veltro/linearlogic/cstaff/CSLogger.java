@@ -1,4 +1,4 @@
-package linearlogic.developher.util;
+package com.veltro.linearlogic.cstaff;
 
 import java.util.logging.Logger;
 

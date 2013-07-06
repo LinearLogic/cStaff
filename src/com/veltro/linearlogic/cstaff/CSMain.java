@@ -1,15 +1,15 @@
-package linearlogic.developher.cstaff;
+package com.veltro.linearlogic.cstaff;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import linearlogic.developher.util.CSLogger;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 public class CSMain extends JavaPlugin
 {

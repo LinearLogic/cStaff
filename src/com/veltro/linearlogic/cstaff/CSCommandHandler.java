@@ -1,4 +1,4 @@
-package linearlogic.developher.cstaff;
+package com.veltro.linearlogic.cstaff;
 
 import java.util.ArrayList;
 import org.bukkit.Bukkit;
