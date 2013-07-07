@@ -1,27 +1,21 @@
-#<<---->> cStaff 1.6 <<---->>
+#<<---->> cStaff 2.4.2 <<---->>
 
 Finally, all those confused players know who to ask for help!  Simply type /staff to see:
-  - Names of online staff members (players with the 'cstaff.staff' permission node will show up in this list)
-  - Names of online donors (players with the 'cstaff.donor' permission node will show up in this list
+  - Names of online staff members
+  - Names of online donors
   - Online player count
 
-Now with 6 different built-in color schemes to choose from! Check out the ColorScheme section in the config!
+Now with 6 different built-in color schemes to choose from! Check out the ColorScheme config node!
 
-Compiled with CB 1.3.1 R2.0
+##Configuration nodes:
+* **color-scheme: 1** --- the two-toned color scheme of the cStaff playerlist (1 = blue, 2 = green, 3 = gray, 4 = red, 5 = purple, 6 = gold)
+* **show-on-join: true/false** --- whether to automatically show the cStaff playerlist to joining players
+* **use-displaynames: true/false** --- whether the names of staff and donors in the cStaff playerlist should include prefixes, suffixes, and other modifications
+* **ops.show-as-staff: true/false** --- whether ops are included in the staff list
+* **ops.show-as-donors: true/false** --- whether ops are included in the donor list
 
-Authors: LinearLogic and Developher
-
-###Changelog (1.5.2 --> 1.6.1)
-- Added Op handling to config.yml (by default, Ops show up as staff, but not donors)
-- Added checker methods to /staff output generator, so that Ops only show up as staff/donors if they are configged to do so (in the config.yml)
-
-###Changelog (1.5.1 --> 1.5.2)
-- Compiled cStaff against CraftBukkit 1.3.1 R2.0
-###Changelog (1.4.1 --> 1.5.1)
-
-- Added 'version' command extension (pretty self-explanatory)
-- Added 'reload' command extension - reloads the config so you don't need to restart the server in order to apply color scheme changes
-- Added 'help' command extension - displays a list of cStaff commands and their functions
-- Added error handling for cStaff commands - an unrecognized command will return the '/cstaff help' output
-- Added permissions nodes for '/cstaff version' and '/cstaff reload'
-- Added permissions branch to plugin.yml
+##Permissions nodes
+* **cstaff.*:** Master node
+* **cstaff.staff:** Players with this node show up as staff in the cStaff playerlist
+* **cstaff.donor:** Players with this node show up as donors in the cStaff playerlist
+* **cstaff.reload:** Permission to reload the cStaff configuration with '/cstaff reload'
