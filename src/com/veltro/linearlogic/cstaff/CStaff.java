@@ -31,12 +31,12 @@ public class CStaff extends JavaPlugin {
 		ArrayList<String> staff = new ArrayList<String>(), donors = new ArrayList<String>();
 		for (Player p : getServer().getOnlinePlayers()) {
 			if (p.hasPermission("cstaff.staff") || (p.isOp() && getConfig().getBoolean("ops.show-as-staff")))
-				staff.add(p.getDisplayName());
+				staff.add(getConfig().getBoolean("use-displaynames") ? p.getDisplayName() : p.getName());
 			if (p.hasPermission("cstaff.donor") || (p.isOp() && getConfig().getBoolean("ops.show-as-donors")))
-				staff.add(p.getDisplayName());
+				staff.add(getConfig().getBoolean("use-displaynames") ? p.getDisplayName() : p.getName());
 		}
 		ChatColor c1, c2;
-		switch (getConfig().getInt("ColorScheme")) {
+		switch (getConfig().getInt("color-scheme")) {
 			default:
 			case 1:
 				c1 = ChatColor.BLUE;
