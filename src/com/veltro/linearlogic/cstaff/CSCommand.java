@@ -50,9 +50,9 @@ public class CSCommand implements CommandExecutor {
 		ArrayList<String> staff = new ArrayList<String>(), donors = new ArrayList<String>();
 		for (Player p : plugin.getServer().getOnlinePlayers()) {
 			if (p.hasPermission("cstaff.staff") || (p.isOp() && plugin.getConfig().getBoolean("ops.show-as-staff")))
-				staff.add(p.getName());
+				staff.add(p.getDisplayName());
 			if (p.hasPermission("cstaff.donor") || (p.isOp() && plugin.getConfig().getBoolean("ops.show-as-donors")))
-				staff.add(p.getName());
+				staff.add(p.getDisplayName());
 		}
 		ChatColor c1, c2;
 		switch (plugin.getConfig().getInt("ColorScheme")) {
