@@ -13,6 +13,9 @@ public class CStaff extends JavaPlugin {
 		getLogger().info("Loading config...");
 		saveDefaultConfig();
 
+		getLogger().info("Registering listener...");
+		getServer().getPluginManager().registerEvents(new CSListener(this), this);
+
 		getLogger().info("Activating command handler...");
 		getCommand("cstaff").setExecutor(new CSCommand(this));
 		
